@@ -15,11 +15,11 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://redirapp.com"
 
-  s.license = { :type => "MIT", :file => "LICENSE" }
+  s.license = "MIT"
 
   s.author             = { "Redirapp" => "contact@redirapp.com" }
 
-  s.source = { :git => "https://github.com/Redirapp/redirapp_sdk_ios.git", :tag => "master" }
+  s.source = { :git => "https://github.com/Redirapp/redirapp_sdk_ios.git", :tag => "#{s.version}" }
 
   s.platform     = :ios, "10.2"
 
