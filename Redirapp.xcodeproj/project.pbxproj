@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		7D3EBC8A1F49EA27007FFAD4 /* redirapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D3EBC881F49EA27007FFAD4 /* redirapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D3EBC911F49EC13007FFAD4 /* redirapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3EBC901F49EC13007FFAD4 /* redirapp.swift */; };
+		C446C00936E75E37A1C4D6A2 /* Pods_redirapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098C48E68A25032010EC00AB /* Pods_redirapp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		098C48E68A25032010EC00AB /* Pods_redirapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_redirapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3EBC851F49EA27007FFAD4 /* redirapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = redirapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3EBC881F49EA27007FFAD4 /* redirapp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = redirapp.h; sourceTree = "<group>"; };
 		7D3EBC891F49EA27007FFAD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D3EBC901F49EC13007FFAD4 /* redirapp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = redirapp.swift; sourceTree = "<group>"; };
+		90B19CA43AC1291C0638AE23 /* Pods-redirapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redirapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-redirapp/Pods-redirapp.release.xcconfig"; sourceTree = "<group>"; };
+		CE6E2213D4181D7F65AC9EB9 /* Pods-redirapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redirapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-redirapp/Pods-redirapp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C446C00936E75E37A1C4D6A2 /* Pods_redirapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +39,8 @@
 			children = (
 				7D3EBC871F49EA27007FFAD4 /* redirapp */,
 				7D3EBC861F49EA27007FFAD4 /* Products */,
+				9D91BFB2F3497259F6B4664B /* Pods */,
+				BD81A45BEB6381CB39431F5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,8 +57,26 @@
 			children = (
 				7D3EBC881F49EA27007FFAD4 /* redirapp.h */,
 				7D3EBC891F49EA27007FFAD4 /* Info.plist */,
+				7D3EBC901F49EC13007FFAD4 /* redirapp.swift */,
 			);
 			path = redirapp;
+			sourceTree = "<group>";
+		};
+		9D91BFB2F3497259F6B4664B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E2213D4181D7F65AC9EB9 /* Pods-redirapp.debug.xcconfig */,
+				90B19CA43AC1291C0638AE23 /* Pods-redirapp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD81A45BEB6381CB39431F5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				098C48E68A25032010EC00AB /* Pods_redirapp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,10 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D3EBC8D1F49EA27007FFAD4 /* Build configuration list for PBXNativeTarget "redirapp" */;
 			buildPhases = (
+				741560314B50B2E732D249BE /* [CP] Check Pods Manifest.lock */,
 				7D3EBC801F49EA27007FFAD4 /* Sources */,
 				7D3EBC811F49EA27007FFAD4 /* Frameworks */,
 				7D3EBC821F49EA27007FFAD4 /* Headers */,
 				7D3EBC831F49EA27007FFAD4 /* Resources */,
+				3FBF7463042573C65707C124 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,11 +125,12 @@
 					7D3EBC841F49EA27007FFAD4 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T2X2SBY976;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 7D3EBC7F1F49EA27007FFAD4 /* Build configuration list for PBXProject "redirapp" */;
+			buildConfigurationList = 7D3EBC7F1F49EA27007FFAD4 /* Build configuration list for PBXProject "Redirapp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -127,11 +157,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FBF7463042573C65707C124 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redirapp/Pods-redirapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		741560314B50B2E732D249BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-redirapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D3EBC801F49EA27007FFAD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D3EBC911F49EC13007FFAD4 /* redirapp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +306,9 @@
 		};
 		7D3EBC8E1F49EA27007FFAD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6E2213D4181D7F65AC9EB9 /* Pods-redirapp.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2X2SBY976;
@@ -252,13 +321,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redirapp.redirapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		7D3EBC8F1F49EA27007FFAD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90B19CA43AC1291C0638AE23 /* Pods-redirapp.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2X2SBY976;
@@ -278,7 +350,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D3EBC7F1F49EA27007FFAD4 /* Build configuration list for PBXProject "redirapp" */ = {
+		7D3EBC7F1F49EA27007FFAD4 /* Build configuration list for PBXProject "Redirapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D3EBC8B1F49EA27007FFAD4 /* Debug */,
@@ -294,6 +366,7 @@
 				7D3EBC8F1F49EA27007FFAD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
