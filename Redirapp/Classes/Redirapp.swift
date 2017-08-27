@@ -3,7 +3,7 @@ import UIKit
 import Alamofire
 
 
-public class Redirapp {
+@objc public class Redirapp: NSObject {
     
     private static let baseUrl:String = "https://api.redirapp.com"
     private static let userDefaultsKey:String = "redirapp"
@@ -47,14 +47,6 @@ public class Redirapp {
             "sku": sku
             ])
     }
-    
-    public class func test() {
-        //Redirapp.request("test")
-        Redirapp.request("test", completion: { (result) -> Void in
-            print("result: \(result)")
-        })
-    }
-    
     
     private class func request(_ path:String, parameters:[String : Any] = [:], completion: ((_ result: [String : Any]) -> Void)? = nil) {
         let url = "\(Redirapp.baseUrl)/\(path)"
