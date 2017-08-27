@@ -3,84 +3,57 @@ import UIKit
 import Alamofire
 
 
-class Redirapp {
+public class Redirapp {
+    
+    private static let baseUrl:String = "http://192.168.0.12:3000"
+    private static let userDefaultsKey:String = "redirapp"
+    private static let customerTokenUserDefaultsKey:String = "customerToken"
+    
     
     private static var appId:String? = nil
     
-    private static let defaults:UserDefaults = UserDefaults.init(suiteName: "redirapp")!
-    private static let userDefaultsCustomerTokenKey:String = "customerToken"
+    private static let defaults:UserDefaults = UserDefaults.init(suiteName: userDefaultsKey)!
     
     private class func getCustomerToken() -> String? {
-        return Redirapp.defaults.string(forKey: Redirapp.userDefaultsCustomerTokenKey)
+        return Redirapp.defaults.string(forKey: Redirapp.customerTokenUserDefaultsKey)
     }
     
-    class func `init`(appId:String) {
-        
-        if (Redirapp.appId != nil) { return }
-        
+    private class func setCustomerToken(_ customerToken:String) {
+        Redirapp.defaults.setValue(customerToken, forKey: Redirapp.customerTokenUserDefaultsKey)
+    }
+    
+    
+    public class func `init`(_ appId:String) {
         Redirapp.appId = appId
-        
         if (getCustomerToken() == nil) { logInstallation() }
-        
-        
-        
-        
     }
     
-    class func logInstallation() {
-        if (Redirapp.appId == nil)  { return }
-        
-        
-        
+    private class func logInstallation() {
+        if (getCustomerToken() != nil)  { return } //Already initialized... don't log it...
+        if (Redirapp.appId == nil) { return } //No app id initialized...
+        Redirapp.request("/apps/\(Redirapp.appId!)/log_install") { (result) in
+            Redirapp.setCustomerToken(result["customer_token"] as! String)
+        }
     }
     
-    class func test() {
-        print("teste")
-        
+    public class func test() {
+        //Redirapp.request("test")
+        Redirapp.request("test", completion: { (result) -> Void in
+            print("result: \(result)")
+        })
+    }
+    
+    
+    private class func request(_ path:String, parameters:[String : Any] = [:], completion: ((_ result: [String : Any]) -> Void)? = nil) {
+        let url = "\(Redirapp.baseUrl)/\(path)"
         let userAgent = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent")! + " Redirapp"
-        print(userAgent)
-        UserDefaults.standard.register(defaults: ["UserAgent": userAgent])
-        
-        let url = "http://127.0.0.1:3000/test"
-        
-        let headers: HTTPHeaders = [
-            "User-Agent": userAgent
-        ]
-        
-        
-        Alamofire.request(url, headers: headers).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+        let headers:HTTPHeaders = ["User-Agent": userAgent]
+        var modified_parameters = parameters
+        modified_parameters["device_token"] = UIDevice.current.identifierForVendor!.uuidString
+        Alamofire.request(url, method: .post, parameters: modified_parameters, headers: headers).responseJSON { response in
+            if response.result.isSuccess && completion != nil {
+                completion!(response.result.value as! [String : Any])
             }
         }
-        
-        
-        /*
-         
-         let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
-         guard error == nil else {
-         print(error!)
-         return
-         }
-         guard let data = data else {
-         print("Data is empty")
-         return
-         }
-         
-         let json = try! JSONSerialization.jsonObject(with: data, options: [])
-         print(json)
-         }
-         task.resume()
-         */
     }
-    
-    
 }

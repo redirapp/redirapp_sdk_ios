@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 
   s.source = { :git => "https://github.com/Redirapp/redirapp_sdk_ios.git", :tag => "#{s.version}" }
 
-  s.platform     = :ios, "10.2"
+  s.platform     = :ios, "9"
 
   s.framework  = "UIKit"
   s.dependency 'Alamofire', '~> 4.4'
-  s.source_files = "redirapp/**/*.{swift}"
+  s.source_files = "redirapp/redirapp.swift"
 
   s.requires_arc = true
 
