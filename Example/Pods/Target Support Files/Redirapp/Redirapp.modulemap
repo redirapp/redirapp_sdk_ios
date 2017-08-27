@@ -1,0 +1,6 @@
+framework module Redirapp {
+  umbrella header "Redirapp-umbrella.h"
+
+  export *
+  module * { export * }
+}

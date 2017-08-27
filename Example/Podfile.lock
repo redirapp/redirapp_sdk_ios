@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Nimble (5.1.1)
+  - Quick (1.0.0)
+  - Redirapp (0.0.2):
+    - Alamofire (~> 4.4)
+
+DEPENDENCIES:
+  - Nimble (~> 5.1.1)
+  - Quick (~> 1.0.0)
+  - Redirapp (from `../`)
+
+EXTERNAL SOURCES:
+  Redirapp:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Redirapp: b60c1006e2b56562bc653377baf347bc21d61b74
+
+PODFILE CHECKSUM: 8ea32b8808d7ac94eb880a6ba40ff1fe69ca2671
+
+COCOAPODS: 1.3.1
