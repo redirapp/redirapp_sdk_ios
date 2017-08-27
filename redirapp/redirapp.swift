@@ -27,6 +27,7 @@ public class Redirapp {
         Redirapp.appId = appId
         if (getCustomerToken() == nil) { logInstallation() }
     }
+
     
     private class func logInstallation() {
         if (getCustomerToken() != nil)  { return } //Already initialized... don't log it...
@@ -34,6 +35,17 @@ public class Redirapp {
         Redirapp.request("/apps/\(Redirapp.appId!)/log_install") { (result) in
             Redirapp.setCustomerToken(result["customer_token"] as! String)
         }
+    }
+    
+    public class func logPurchase(amount:Double, currency:String = "USD", sku:String) {
+        if (getCustomerToken() == nil)  { return } //Not initialized... don't log it...
+        if (Redirapp.appId == nil) { return } //No app id initialized...
+        Redirapp.request("/apps/\(Redirapp.appId!)/log_purchase", parameters: [
+            "customer_token": getCustomerToken()!,
+            "amount": amount,
+            "currency": currency,
+            "sku": sku
+        ])
     }
     
     public class func test() {

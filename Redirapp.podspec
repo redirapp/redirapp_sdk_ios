@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
     user opens a deep link.
                    DESC
 
-  s.homepage     = "http://redirapp.com"
+  s.homepage     = "https://redirapp.com"
 
   s.license = "MIT"
 
   s.author             = { "Redirapp" => "contact@redirapp.com" }
 
-  s.source = { :git => "https://github.com/Redirapp/redirapp_sdk_ios.git", :tag => "#{s.version}" }
+  s.source = { :git => "https://github.com/redirapp/redirapp_sdk_ios.git", :tag => "#{s.version}" }
 
   s.platform     = :ios, "9"
 
