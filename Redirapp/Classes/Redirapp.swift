@@ -37,7 +37,11 @@ import Alamofire
         }
     }
     
-    public class func logPurchase(amount:Double, currency:String = "USD", sku:String) {
+    public class func logPurchase(amount:Double, sku:String) {
+        logPurchase(amount: amount, currency:"USD", sku: sku)
+    }
+    
+    public class func logPurchase(amount:Double, currency:String, sku:String) {
         if (getCustomerToken() == nil)  { return } //Not initialized... don't log it...
         if (Redirapp.appId == nil) { return } //No app id initialized...
         Redirapp.request("/apps/\(Redirapp.appId!)/log_purchase", parameters: [
