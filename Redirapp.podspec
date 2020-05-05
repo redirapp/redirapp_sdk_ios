@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Redirapp'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'Mobile attribution and distribution platform.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/redirapp/redirapp_sdk_ios.git", :tag => "#{s.version}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'Redirapp/Classes/**/*'
   
@@ -44,5 +44,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   
   s.frameworks = 'UIKit'
-  s.dependency 'Alamofire', '~> 4.4'
+  s.dependency 'Alamofire', '~> 5.1'
 end
