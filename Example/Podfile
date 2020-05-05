@@ -1,12 +1,13 @@
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Redirapp_Example' do
   pod 'Redirapp', :path => '../'
-
+  
   target 'Redirapp_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.0.0'
-    pod 'Nimble', '~> 5.1.1'
+   pod 'Quick'
+   pod 'Nimble'
   end
 end
